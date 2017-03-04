@@ -37,6 +37,8 @@ producto.ProductoTipo= (int)cboCategoria.SelectedValue;
 bse.AddToTablaProductoes(producto);
 bse.SaveChanges(); 
 
+MessageBox.Show("El producto se ha agregado.)";
+
 
 
 }
