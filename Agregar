@@ -1,0 +1,42 @@
+
+//At Menu For Inventario 
+Agregar agregar = new Agregar(); 
+Agregar.Show();
+
+ 
+ //Public Partial Form de Inventario 
+ private Byte[] byteBLOBData;
+ 
+ 
+//At Subir Archivo (Button Subir Archivo) 
+DialogResult result = openDialog1.ShowDialog(); 
+
+
+if(result==DialogResult.OK)
+{
+FileStream fsBLOBFile = new FileStream(openFileDialog1.Filename, FileMode.Open, FileAccess.Read);
+
+byteBLOBData = new Byte[FSBlobFile.Length];
+fsBLOBFile.Read(byteBLOBData,0,byteBLOBData.Length); 
+fsBLOBFile.Close(); 
+MemoryStream stmBLOBData = new MemoryStream(byteBLOBData);
+pbImagen.Imagen=Imagen.FromStream(stmBLOBData); 
+
+}
+}//funcion Button Archivo 
+
+//Boton Save 
+{
+TablaProductoes producto  = new TablaProductoes(); 
+producto.Descripcion= textDescripcion.text; 
+producto.Precio= decimal.Parse(textPrecio.text); 
+producto.Stock= int.Parse(textStock.Text); 
+producto.Imagen= ByteBLOBData; 
+producto.ProductoTipo= (int)cboCategoria.SelectedValue; 
+
+bse.AddToTablaProductoes(producto);
+bse.SaveChanges(); 
+
+
+
+}
